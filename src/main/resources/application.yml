@@ -5,13 +5,14 @@ server:
 
 grpc:
   server:
-    port: ${GRPC_PORT:8212}
+    port: ${GRPC_SERVER_PORT:8212}
     enableKeepAlive: true
     permitKeepAliveWithoutCalls: true
     keepAliveTime: ${GRPC_SERVER_KEEP_ALIVE_TIME:60}
     keepAliveTimeout: ${GRPC_SERVER_KEEP_ALIVE_TIMEOUT:20}
 
 logging:
-  file: api-third-part.log
+  file:
+    name: api-third-part.log
   level:
     root: ${LOGGING_LEVEL:info}

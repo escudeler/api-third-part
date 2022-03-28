@@ -17,7 +17,7 @@ public class ThirdPartController {
 	
 	@PostMapping("/authorize")
 	public ResponseEntity<AuthResponse> authorize(@RequestBody HelloRequest speakRequest) {
-		AuthResponse authResponse = authorizeService.validate(speakRequest);
+		AuthResponse authResponse = authorizeService.validateHttp(speakRequest);
 		return ResponseEntity.ok(authResponse);	
 	}
 }

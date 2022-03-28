@@ -1,6 +1,6 @@
 package escudeler.example.apithirdpart.grpc;
 
-import escudeler.example.apispeak.grpc.SpeakRequest;
+import escudeler.example.apispeak.grpc.PersonRequest;
 import escudeler.example.apithirdpart.grpc.ThirdPartGrpcServiceGrpc.ThirdPartGrpcServiceImplBase;
 import escudeler.example.apithirdpart.service.AuthorizeService;
 import io.grpc.stub.StreamObserver;
@@ -16,9 +16,9 @@ public class ThirdPartGrpcService extends ThirdPartGrpcServiceImplBase {
 	private final AuthorizeService authorizeService;
 
 	@Override
-	public void authorize(SpeakRequest request, StreamObserver<AuthorizeResponse> responseObserver) {
+	public void authorize(PersonRequest request, StreamObserver<AuthorizeResponse> responseObserver) {
 		try {
-			AuthorizeResponse response = authorizeService.validate(request);
+			AuthorizeResponse response = authorizeService.validateGrpc(request);
             responseObserver.onNext(response);
             responseObserver.onCompleted();
 		} catch (Exception e) {
